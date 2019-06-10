@@ -12,6 +12,8 @@ aws_access_key_id = AKIAIQ...
 aws_secret_access_key = NLWyU0...
 ```
 
+Change the AWS region where AWS X-Ray is running if needed in [haproxy-xray/Dockerfile](https://github.com/haproxytechblog/haproxy-aws-xray-sample/blob/master/haproxy-xray/Dockerfile).
+
 Start the demo by using `docker-compose up`:
 
 ```
