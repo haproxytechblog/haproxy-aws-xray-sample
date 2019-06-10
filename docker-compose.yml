@@ -1,0 +1,29 @@
+---
+version: "3"
+services:
+
+  xray:
+    image: haproxytechblog/haproxy-xray
+    build:
+      context: ./haproxy-xray
+      dockerfile: Dockerfile
+    environment:
+    - "aws_region=us-east-2"
+    volumes:
+    - "./haproxy-xray/credentials:/root/.aws/credentials"
+
+  server:
+    image: jmalloc/echo-server
+    environment:
+    - "PORT=80"
+
+  haproxy:
+    image: haproxytech/haproxy-ubuntu:1.9.8
+    volumes:
+    - "./haproxy/haproxy.cfg:/etc/haproxy/haproxy.cfg"
+    ports:
+    - "8080:80"
+    - "8404:8404"
+    depends_on:
+    - xray
+    - server
