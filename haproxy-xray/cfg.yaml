@@ -1,6 +1,6 @@
 TotalBufferSizeMB: 0
 Concurrency: 8
-Region: "AWS_REGION"
+Region: "us-east-2"
 Endpoint: ""
 Socket:
   UDPAddress: "127.0.0.1:2000"

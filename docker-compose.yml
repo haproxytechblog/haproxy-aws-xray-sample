@@ -7,10 +7,9 @@ services:
     build:
       context: ./haproxy-xray
       dockerfile: Dockerfile
-    environment:
-    - "aws_region=us-east-2"
     volumes:
     - "./haproxy-xray/credentials:/root/.aws/credentials"
+    - "./haproxy-xray/cfg.yaml:/etc/amazon/xray/cfg.yaml"
 
   server:
     image: jmalloc/echo-server
